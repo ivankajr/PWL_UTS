@@ -12,10 +12,9 @@ class Barang extends Model
 {
     protected $table="barangs"; // Eloquent akan membuat model mahasiswa menyimpan record di table mahasiswas
     public $timestamps=false;
-    protected $primaryKey = 'id_barang'; // Memanggil isi DB dengan Primarykey
+    protected $primaryKey = 'id'; // Memanggil isi DB dengan Primarykey
     
     protected $fillable = [
-        'id_barang',
         'kode_barang',
         'nama_barang',
         'kategori_barang',

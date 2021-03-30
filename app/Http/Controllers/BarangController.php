@@ -18,7 +18,7 @@ class BarangController extends Controller
         if($search){
             $posts = Barang::where('nama_barang', 'LIKE', "%{$search}%")->paginate(3);
         } else {
-            $posts = Barang::orderBy('id_barang','desc')->paginate(5); 
+            $posts = Barang::orderBy('id','desc')->paginate(5); 
         }
         return view('barangs.index', compact('posts'));
         with('i',(request()->input('page', 1) - 1) * 5);
@@ -43,7 +43,6 @@ class BarangController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'id_barang' => 'required',
             'kode_barang' => 'required',
             'nama_barang' => 'required',
             'kategori_barang' => 'required',
@@ -61,9 +60,9 @@ class BarangController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id_barang)
+    public function show($id)
     {
-        $Barang = Barang::find($id_barang);
+        $Barang = Barang::find($id);
         return view('barangs.detail', compact('Barang'));
     }
 
@@ -73,9 +72,9 @@ class BarangController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id_barang)
+    public function edit($id)
     {
-        $Barang = Barang::find($id_barang);
+        $Barang = Barang::find($id);
         return view('barangs.edit', compact('Barang'));
     }
 
@@ -86,11 +85,10 @@ class BarangController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id_barang)
+    public function update(Request $request, $id)
     {
         //melakukan validasi data
         $request->validate([
-            'id_barang' => 'required',
             'kode_barang' => 'required',
             'nama_barang' => 'required',
             'kategori_barang' => 'required',
@@ -98,7 +96,7 @@ class BarangController extends Controller
             'qty' => 'required',
         ]);
         //fungsi eloquent untuk mengupdate data inputan kita
-        Barang::find($id_barang)->update($request->all());
+        Barang::find($id)->update($request->all());
         //jika data berhasil di update, akan kembali ke halaman uutama
             return redirect()->route('barang.index')
                 ->with('success', 'Barang Berhasil Diupdate');
@@ -110,9 +108,9 @@ class BarangController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id_barang)
+    public function destroy($id)
     {
-        Barang::find($id_barang)->delete();
+        Barang::find($id)->delete();
         return redirect()->route('barang.index')
             -> with('success', 'Barang Berhasil Dihapus');
     }

@@ -8,7 +8,7 @@
         </div>
         <div class="card-body">
             <ul class="list-group list-group-flush">
-                <li class="list-group-item"><b>ID Barang: </b>{{$Barang->id_barang}}</li>
+                <li class="list-group-item"><b>ID Barang: </b>{{$Barang->id}}</li>
                 <li class="list-group-item"><b>Kode Barang: </b>{{$Barang->kode_barang}}</li>
                 <li class="list-group-item"><b>Nama Barang: </b>{{$Barang->nama_barang}}</li>
                 <li class="list-group-item"><b>Kategori barang: </b>{{$Barang->kategori_barang}}</li>
