@@ -16,7 +16,7 @@ class BarangController extends Controller
     {
         $search = request()->query('search');
         if($search){
-            $posts = Barang::where('id_barang', 'LIKE', "%{$search}%")->paginate(3);
+            $posts = Barang::where('nama_barang', 'LIKE', "%{$search}%")->paginate(3);
         } else {
             $posts = Barang::orderBy('id_barang','desc')->paginate(5); 
         }

@@ -1,12 +1,19 @@
 @extends('barangs.layout')
 @section('content')
-    <div class="row">
+    <<div class="row">
         <div class="col-lg-12 margin-tb">
-            <div class="pull-left mt-2">
+            <div class="pull-left mt-3">
                 <h2>SISTEM INFORMASI BARANG</h2>
             </div>
-            <div class="float-right my-2">
-                <a class="btn btn-success" href="{{ route('barang.create') }}"> Input Barang</a>
+            <div class="float-right my-3">
+                <div class="row ">
+                    <div class="col-sm-auto"><a class="btn btn-success" href="{{ route('barang.create') }}"> Input Barang</a></div>
+                </div>    
+            </div>
+            <div>
+                <form class="input-group" action="{{ route('barang.index') }}" method="GET">
+                    <input type="text" class="form-control" name="search" placeholder="Search by nama_barang">
+                </form>
             </div>
         </div>
     </div>
@@ -15,6 +22,14 @@
         <p>{{ $message }}</p>
     </div>
 @endif
+<!-- <div class="col-md-4">
+    <form action="/search" method="get">
+    <div class="form-group">
+    <input type="search" name="search" class="form-control">
+    <span class="form-group-btn">
+        <button type="submit" class="btn btn-primary">Search</button>
+    </span>
+</div> -->
 <table class="table table-bordered">
 <tr>
     <th>ID BARANG</th>
