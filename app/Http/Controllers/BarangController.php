@@ -98,7 +98,7 @@ class BarangController extends Controller
             'qty' => 'required',
         ]);
         //fungsi eloquent untuk mengupdate data inputan kita
-        Mahasiswa::find($id_barang)->update($request->all());
+        Barang::find($id_barang)->update($request->all());
         //jika data berhasil di update, akan kembali ke halaman uutama
             return redirect()->route('barang.index')
                 ->with('success', 'Barang Berhasil Diupdate');
