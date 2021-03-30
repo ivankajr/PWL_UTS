@@ -35,9 +35,9 @@
                 <td>{{ $Barang->harga }}</td>
                 <td>{{ $Barang->qty }}</td>
                 <td>
-                <form action="{{ route('barang.destroy',$Barang->nim) }}" method="POST">
-                    <a class="btn btn-info" href="{{ route('barang.show',$Barang->nim) }}">Show</a>
-                    <a class="btn btn-primary" href="{{ route('barang.edit',$Barang->nim) }}">Edit</a>
+                <form action="{{ route('barang.destroy',$Barang->id_barang) }}" method="POST">
+                    <a class="btn btn-info" href="{{ route('barang.show',$Barang->id_barang) }}">Show</a>
+                    <a class="btn btn-primary" href="{{ route('barang.edit',$Barang->id_barang) }}">Edit</a>
                         @csrf 
                         @method('DELETE')
                     <button type="submit" class="btn btn-danger">Delete</button>
